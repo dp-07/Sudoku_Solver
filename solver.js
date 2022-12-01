@@ -13,9 +13,11 @@ var SudokuSolver = function (testable) {
   // PUBLIC FUNCTIONS
   function solve(boardString) {
     var boardArray = boardString.split("");
-    if (boardIsInvalid(boardArray)) {
+
+    if (!boardIsValid(boardArray)) {
       return false;
     }
+
     return recursiveSolve(boardString);
   }
 
@@ -42,10 +44,6 @@ var SudokuSolver = function (testable) {
       }
     }
     return false;
-  }
-
-  function boardIsInvalid(boardArray) {
-    return !boardIsValid(boardArray);
   }
 
   function boardIsValid(boardArray) {
@@ -148,7 +146,6 @@ var SudokuSolver = function (testable) {
       solve: solve,
       solveAndPrint: solveAndPrint,
       recursiveSolve: recursiveSolve,
-      boardIsInvalid: boardIsInvalid,
       boardIsValid: boardIsValid,
       boardIsSolved: boardIsSolved,
       getNextCellAndPossibilities: getNextCellAndPossibilities,
